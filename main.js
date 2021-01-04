@@ -1560,7 +1560,7 @@ class LoginpageComponent {
         this.submitted = false;
     }
     ngOnInit() {
-        this.wrongCredentials = false;
+        // this.wrongCredentials = false;
         this.loginForm = this.fb.group({
             email: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             password: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
@@ -1569,7 +1569,7 @@ class LoginpageComponent {
     submitLogin() {
         this.submitted = true;
         let user = this.loginForm.value;
-        this.login.loginUser(user).subscribe(data => {
+        this.login.loginUser(user).subscribe((data) => {
             // console.log(1)
             // console.log(data.body.user._id, data.body.token)
             if (data.status === 200) {
@@ -1577,10 +1577,11 @@ class LoginpageComponent {
                 localStorage.setItem('token', data.body.token);
                 this.router.navigate(['home']);
             }
-            else {
-                this.wrongCredentials = true;
-            }
+        }, error => {
+            this.wrongCredentials = true;
+            console.log(error);
         });
+        console.log(2);
     }
 }
 LoginpageComponent.ɵfac = function LoginpageComponent_Factory(t) { return new (t || LoginpageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_services_loginservice_service__WEBPACK_IMPORTED_MODULE_2__["LoginserviceService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_services_userprofile_service__WEBPACK_IMPORTED_MODULE_4__["UserprofileService"])); };
