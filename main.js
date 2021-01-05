@@ -733,7 +733,7 @@ function AccountsettingsComponent_span_28_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Wrong passwords!");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
-const _c0 = function () { return [".."]; };
+const _c0 = function () { return ["home"]; };
 class AccountsettingsComponent {
     constructor(fb, update, router, profile, deleteacc) {
         this.fb = fb;
